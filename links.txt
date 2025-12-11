@@ -1,3 +1,9 @@
-
+home=http://www.doc.gold.ac.uk/usr/435/
+about=http://www.doc.gold.ac.uk/usr/435/about
+list=http://www.doc.gold.ac.uk/usr/435/activities/list
+search=http://www.doc.gold.ac.uk/usr/435/activities/search
+register=http://www.doc.gold.ac.uk/usr/435/users/register
+login=http://www.doc.gold.ac.uk/usr/435/users/login
+users=http://www.doc.gold.ac.uk/usr/435/users/login
 
     
