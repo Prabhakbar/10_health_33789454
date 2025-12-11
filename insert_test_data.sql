@@ -6,7 +6,7 @@ VALUES (
   'Sample',
   'User',
   'gold@example.com',
-  'REPLACE_WITH_HASH'
+  '$2a$12$mUDhYuovPv5kEju8AOctr.W7pwLj2cvNwIamKV.nt2gUCUTOXayfK'
 );
 
 INSERT INTO activities (user_id, activity_type, duration_minutes, distance_km, activity_date, notes)
