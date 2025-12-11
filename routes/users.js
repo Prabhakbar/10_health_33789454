@@ -99,45 +99,39 @@ router.get('/list', redirectLogin, function (req, res, next) {
 router.post('/loggedin', function (req, res, next) {
     const { username, password } = req.body;
 
-    let sqlquery = "SELECT hashedPassword FROM users WHERE username = ?";
-    
+    const sqlquery = "SELECT id, hashedPassword FROM users WHERE username = ?";
+
     db.query(sqlquery, [username], (err, result) => {
         if (err) {
-            return next(err); 
+            return next(err);
         }
 
-        // Check if a user with that username exists
         if (result.length === 0) {
-            // User not found, send failure message
+            // No such user
             return res.send('Login Failed: Invalid username or password.');
         }
 
-        // The hashed password retrieved from the database
-        const hashedPassword = result[0].hashedPassword;
+        const user = result[0];               
+        const hashedPassword = user.hashedPassword;
 
-        bcrypt.compare(req.body.password, hashedPassword, function(err, result) {
+        bcrypt.compare(password, hashedPassword, (err, isMatch) => {
             if (err) {
                 console.error("Bcrypt comparison error:", err);
-                return next(err); 
+                return next(err);
             }
-            
-           else if (result === true) {
-            req.session.userId = req.body.username;
 
-            // render the nice success page
-            res.render('loginsuccess.ejs', {
-             username: username
-                });
-              }
-
-            else {
-                res.send('Login Failed: Invalid username or password.');
-
-
+            if (!isMatch) {
+                return res.send('Login Failed: Invalid username or password.');
             }
+
+            req.session.userId = user.id;
+            req.session.username = username;
+
+            res.render('loginsuccess.ejs', { username });
         });
     });
 });
+
 
 router.get('/logout', (req, res, next) => {
     req.session.destroy(err => {
