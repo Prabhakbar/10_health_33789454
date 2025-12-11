@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Login Successful - <%= shopData.shopName %></title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Login Successful!</h1>
+
+      <p>Welcome back, <strong><%= username %></strong>.</p>
+      <p>You are now logged in to <%= shopData.shopName %>.</p>
+
+      <p>What would you like to do next?</p>
+
+      <p>
+        <a href="/">🏠 Go to Home</a>
+        <a href="/activities/add">➕ Add a new activity</a>
+        <a href="/activities/list">📋 View your activities</a>
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Registration Successful - <%= shopData.shopName %></title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <div class="container">
+
+      <h1>Registration Successful!</h1>
+
+      <p>
+        Welcome <strong><%= first %> <%= last %></strong>!  
+        Your account has been created successfully.
+      </p>
+
+      <p>Your registered email is: <strong><%= email %></strong></p>
+
+      <p>What would you like to do next?</p>
+
+      <p>
+        <a href="/">🏠 Go to Home</a>
+        <a href="/users/login">🔑 Log In</a>
+      </p>
+
+    </div>
+  </body>
+</html>

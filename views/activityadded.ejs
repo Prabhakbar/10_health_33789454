@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Workout Added - <%= shopData.shopName %></title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Workout Added</h1>
+
+      <p>
+        Your workout
+        <% if (activityType) { %>
+          "<strong><%= activityType %></strong>"
+        <% } %>
+        has been successfully saved!
+      </p>
+
+      <p>What would you like to do next?</p>
+
+      <p>
+        <a href="/">🏠 Back to Home</a>
+        <a href="/activities/add">➕ Add another activity</a>
+        <a href="/activities/list">📋 View all activities</a>
+      </p>
+    </div>
+  </body>
+</html>

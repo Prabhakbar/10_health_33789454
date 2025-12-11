@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Search Activities - <%=shopData.shopName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <h1>Search your activities</h1>
+    <form action="/activities/search-result" method="GET">
+      <p>Search by activity type (e.g. running, cycling):</p>
+      <input id="search-box" type="text" name="search_text">
+      <input type="submit" value="Search">
+    </form>
+  </body>
+</html>

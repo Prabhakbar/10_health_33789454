@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HealthTrack - Activity List</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" /> 
+</head>
+<body>
+    <div class="container">
+        <h1>HealthTrack</h1>
+        <h1>Your activities</h1>
+        <ul class="activity-list">
+            <% if (activities && activities.length > 0) { %>
+                <% activities.forEach(function(act) { %>
+                    <li class="activity-item">
+                        <span class="activity-type"><%= act.activity_type %></span>
+                        <span class="activity-info">
+                            <%= act.duration_minutes %> mins
+                            <% if (act.distance_km) { %> | <%= act.distance_km %> km <% } %>
+                            | <%= act.activity_date.toISOString().slice(0,10) %>
+                            <% if (act.username) { %> | by <%= act.username %> <% } %>
+                        </span>
+                    </li>
+                <% }); %>
+            <% } else { %>
+                <li class="activity-item">
+                    <span>No activities yet. Add one from the home page!</span>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+    <p><a href="/">Back to Home</a></p>
+    <p>
+    <a href="/activities/add">➕ Add a new activity</a>
+</p>
+</body>
+</html>
